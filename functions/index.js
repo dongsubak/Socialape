@@ -40,5 +40,5 @@ admin.initializeApp();
         .catch(err => {
             res.status(500).json({ error: 'something went wrong'});
             console.error(err);
-        })
+        });
  });
