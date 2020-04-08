@@ -11,7 +11,7 @@ admin.initializeApp();
 
  exports.getScreams = functions.https.onRequest((req, res) => {
     admin.firestore().collection('screams').get()
-        .then(data => {
+        .then((data) => {
             let screams = [];
             data.forEach(doc => {
                 screams.push(doc.data());
@@ -22,6 +22,9 @@ admin.initializeApp();
  })
 
  exports.createScream = functions.https.onRequest((req, res) => {
+     if(req.method !== 'POST') {
+         return res.status(400).json({ error: 'Method not allowed' });
+     }
     const newScream = {
         body: req.body.body,
         userHandle: req.body.userHandle,
