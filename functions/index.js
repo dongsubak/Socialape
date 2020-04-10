@@ -19,12 +19,12 @@ app.get('/screams', (req, res) => {
         })
         .catch(err => console.error(err));
 });
-
+/*
 exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello world!");
  });
-
-
+*/
+/*
 exports.getScreams = functions.https.onRequest((req, res) => {
     admin.firestore().collection('screams').get()
         .then((data) => {
@@ -36,6 +36,7 @@ exports.getScreams = functions.https.onRequest((req, res) => {
         })
         .catch(err => console.error(err));
  })
+ */
 
 exports.createScream = functions.https.onRequest((req, res) => {
      if(req.method !== 'POST') {
