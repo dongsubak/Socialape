@@ -9,8 +9,9 @@ const app = express();
 app.get('/screams', (req, res) => {
     admin
         .firestore()
-        .collection('screams').get()
+        .collection('screams')
         .orderBy('createAt','desc')
+        .get()
         .then((data) => {
             let screams = [];
             data.forEach(doc => {
