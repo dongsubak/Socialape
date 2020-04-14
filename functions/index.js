@@ -10,6 +10,7 @@ app.get('/screams', (req, res) => {
     admin
         .firestore()
         .collection('screams').get()
+        .orderBy('createAt','desc')
         .then((data) => {
             let screams = [];
             data.forEach(doc => {
