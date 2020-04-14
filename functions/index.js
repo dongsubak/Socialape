@@ -29,12 +29,18 @@ app.get('/screams', (req, res) => {
 });
 
 app.post('/scream', (req, res) => {
-
+    /*
    const newScream = {
        body: req.body.body,
        userHandle: req.body.userHandle,
        createdAt: admin.firestore.Timestamp.fromDate(new Date())
    };
+   */
+  const newScream = {
+    body: req.body.body,
+    userHandle: req.body.userHandle,
+    createdAt: new Date().toISOString()
+  };
 
    admin.firestore()
        .collection('screams')
