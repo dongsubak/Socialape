@@ -34,8 +34,8 @@ app.post('/scream', (req, res) => {
        body: req.body.body,
        userHandle: req.body.userHandle,
        createdAt: admin.firestore.Timestamp.fromDate(new Date())
-   };
-   */
+   }; Firebase Timestamp
+   */ 
   const newScream = {
     body: req.body.body,
     userHandle: req.body.userHandle,
