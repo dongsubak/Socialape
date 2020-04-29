@@ -96,4 +96,4 @@ exports.createScream = functions.https.onRequest((req, res) => {
 */
  // https://baseurl.com/api/
 
- exports.api = functions.https.onRequest(app);
+ exports.api = functions.region('us-central').https.onRequest(app);
