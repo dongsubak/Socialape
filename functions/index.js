@@ -3,8 +3,13 @@ const admin = require('firebase-admin');
 
 admin.initializeApp();
 
+const firebaseConfig = require('config');
+
 const express = require('express');
 const app = express();
+
+const firebase = require('firebase');
+firebase.initializeApp(firebaseConfig);
 
 app.get('/screams', (req, res) => {
     admin
