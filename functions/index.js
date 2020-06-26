@@ -1,12 +1,10 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const app = require('express')();
 
 admin.initializeApp();
 
 const firebaseConfig = require('config');
-
-const express = require('express');
-const app = express();
 
 const firebase = require('firebase');
 firebase.initializeApp(firebaseConfig);
@@ -99,6 +97,24 @@ exports.createScream = functions.https.onRequest((req, res) => {
         });
  });
 */
- // https://baseurl.com/api/
+ //// https://baseurl.com/api/
+ // Signup route
+ app.post('/signup', (req, res) => {
+     const newUser = {
+         email: req.body.email,
+         password: req.body.password,
+         confirmPassword: req.body.confirmPassword,
+         email: req.body.handle
+     };
+
+     // TODO: validate data
+
+     firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
+        .then(data => {
+
+
+            
+        })
+ })
 
  exports.api = functions.region('us-central').https.onRequest(app);
